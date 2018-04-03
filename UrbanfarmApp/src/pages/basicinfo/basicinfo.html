@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- <ion-label color="primary">Inline Label</ion-label> -->
+  <ion-item >
+   <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+   <img src="http://www.alrisalahschool.com/wp-content/uploads/2017/06/profile-image-default-200x200.jpg" alt="" style="width: 100%" [hidden]="lastImage !== null">
+ </ion-item>
+   <!-- <h3 [hidden]="lastImage !== null">Please Select Image!</h3> -->
+ <ion-item >
+   <ion-buttons>
+     <button ion-button icon-left (click)="presentActionSheet()">
+       <ion-icon name="camera"></ion-icon>Select Image
+     </button>
+     <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+       <ion-icon name="cloud-upload"></ion-icon>Upload
+     </button>
+   </ion-buttons>
+   </ion-item>
+    <ion-item >
+      <ion-label><b>Name</b></ion-label>
+     <ion-input id = "somthing" [(ngModel)] = "nickName" placeholder="Nick Name"  value= ""></ion-input>
+   </ion-item>
+   <ion-item >
+     <ion-label><b> Mobile </b></ion-label>
+    <ion-input id = "somthing" [(ngModel)] = "phoneNumber" placeholder=" Number"  value= ""></ion-input>
+  </ion-item>
+  <button   class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Submit </button>
+
+</ion-content>

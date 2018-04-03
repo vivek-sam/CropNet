@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item >
+  <ion-label><b> Languages </b> </ion-label>
+  <ion-select [(ngModel)]="languages" multiple="true" item-right>
+    <ion-option selected="true" >English</ion-option>
+    <ion-option>Spanish </ion-option>
+    <ion-option>Hindi</ion-option>
+    <ion-option>French </ion-option>
+  </ion-select>
+</ion-item>
+<ion-item >
+
+  <button  class="geolocation-btn" ion-button full (click)="tryGeolocation()"> Try Geolocation </button>
+  <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Select Your Location"></ion-searchbar>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+  </ion-item>
+  <ion-item >
+    <ion-label>Lat Lang </ion-label>
+    <ion-input id = "somthing" [(ngModel)] = "locationSelected" placeholder="location"  value= ""></ion-input>
+ </ion-item>
+
+  <div class="row" #map1 id='map1'></div>
+  <button   class="geolocation-btn" ion-button full color="secondary" (click)="latLngUpdate()">Submit </button>
+
+</ion-content>

@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ProfiledashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>profiledashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!-- <ion-content padding>
+
+</ion-content> -->
+<div class="bar bar-header bar-danger">
+     <button class="button button-icon"><i class="icon-person-add"></i></button>
+     <h1 class="title">Me</h1>
+     <button class="button button-icon"><i class="icon-gear-b"></i></button>
+   </div>
+
+   <ion-content has-header="true">
+     <div id="profile-bg"></div>
+     <div id="content">
+       <div id="profile-info">
+         <img id="profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+         <h3 id="profile-name">Max</h3>
+         <span id="profile-description">Co-creator of <a href="https://twitter.com/ionicframework">@ionicframework</a>, founder of
+           <a href="https://twitter.com/driftyco">@driftyco</a></span>
+       </div>
+       <ion-list>
+         <ion-item ng-repeat="post in posts">
+           <img class="post-profile-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/94311/me.png">
+           {{post.text}}
+           <div class="post-time">{{post.created_at | relativets }}</div>
+           <div class="post-options">
+             <i class="icon-reply"></i>
+             <i class="icon-shuffle"></i>
+           </div>
+         </ion-item>
+       </ion-list>
+     </div>
+   </ion-content>

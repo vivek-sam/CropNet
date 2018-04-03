@@ -1,0 +1,62 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>Login</ion-title> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="login-content" padding style ="background-color:#2c3e54;">
+  <ion-item style="margin-bottom:3%; border:0px solid transprent;background-color:#2c3e54; ">
+    <ion-icon item-left name="md-person" style="color:white"></ion-icon>
+    <ion-input type="text" placeholder="Username" [(ngModel)]="email" style ="border:0px;"></ion-input>
+  </ion-item>
+  <ion-item style="margin-bottom:6%; border-radius:0px;background-color:#2c3e54;">
+    <ion-icon item-left name="md-key" style="color:white"></ion-icon>
+    <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <ion-item style ="background-color:#2c3e54;">
+    <button (click)="login()" ion-button  color="secondary"  block  large>Login</button>
+  </ion-item >
+  <ion-item style ="background-color:#2c3e54;">
+    <button ion-button     color="danger" (click)="glogin()" block  large>Google Login</button>
+      <button ion-button  color="facebookColor" block  large>Facebook Login</button>
+  </ion-item>
+
+
+  <!-- <ion-row class="top-row">
+    <ion-col>
+      <h1 class="label-logo " style = "">Urban Farm</h1>
+      <p class="label-description"> </p>
+      <!-- <ion-list class="cell-1"> -->
+      <!-- <ion-list > -->
+      <!-- <ion-item style="margin-bottom:3%; border-radius:2px;">
+        <ion-input type="text" placeholder="Username" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item style="margin-bottom:6%; border-radius:2px;">
+        <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <button (click)="login()" ion-button style="margin-bottom:50%;" color="danger" block>Login</button>
+        <p>{{responcedata}}</p>
+      <button ion-button style="margin-bottom:5%;" block color="secondary" >Google Login</button>
+      <button ion-button block color="facebookColor" >Facebook Login</button> -->
+
+      <!-- </ion-list> -->
+
+      <!-- </ion-list> -->
+    <!-- </ion-col>
+
+
+  </ion-row> -->
+  <ion-row class="bottom-row">
+
+  </ion-row>
+</ion-content>

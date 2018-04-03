@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-searchbar [(ngModel)]="searchFor" [showCancelButton]="shouldShowCancel" (change)="getUserPosition()" (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+      <!-- <input type="text" name="" value=" " style = "z-index= 1"><button ion-button   color="danger" (click)="getUserPosition()" block  large padding style = "z-index:9999">Google Login</button> -->
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map" style="width : 100% ;height: 100%; margin:0px;padding:0px;">
+  </div>
+  <button id="connectBtn" ion-button [hidden]="!connectBtn" color="secondary" (click)="connect()" block>Connect</button>
+  <button id="signupBtn" ion-button [hidden]="!signupBtn" color="secondary" (click)="pageredirection()" block>Sign Up to Urbanfarm</button>
+</ion-content>
