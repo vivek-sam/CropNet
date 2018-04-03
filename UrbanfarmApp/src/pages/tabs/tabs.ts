@@ -6,6 +6,8 @@ import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
 import { GeomapPage } from '../geomap/geomap';
 import { BasicinfoPage } from '../basicinfo/basicinfo';
+import { ProfiledashboardPage } from '../profiledashboard/profiledashboard';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -13,13 +15,18 @@ import { BasicinfoPage } from '../basicinfo/basicinfo';
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-  tab4Root = LoginPage;
-  tab5Root = GeomapPage;
+  tab1Root = GeomapPage;
+  tab2Root:any;
+  tab3Root = AboutPage;
 
-  constructor() {
 
+  constructor(private storage: Storage) {
+    this.storage.get('validUser').then((data) => {
+      if(data == true){
+      this.tab2Root = ProfiledashboardPage  ;
+    }else{
+      this.tab2Root = BasicinfoPage  ;
+    }
+  });
   }
 }

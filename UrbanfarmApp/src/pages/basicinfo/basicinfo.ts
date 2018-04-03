@@ -8,6 +8,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { CropselectPage } from '../../pages/cropselect/cropselect';
 import { LatlngupdatePage } from '../../pages/latlngupdate/latlngupdate';
+import { ProfiledashboardPage } from '../../pages/profiledashboard/profiledashboard';
 
 import { Storage } from '@ionic/storage';
 declare var google: any;
@@ -52,9 +53,11 @@ export class BasicinfoPage {
 
 
   ) {
+
     this.loading = this.loadingCtrl.create();
 
     this.platform.ready().then(() => {
+
 
     });
   }

@@ -15,12 +15,13 @@ import { CropselectPage } from '../pages/cropselect/cropselect';
 import { ConnectionsPage } from '../pages/connections/connections';
 import { ProfiledashboardPage } from '../pages/profiledashboard/profiledashboard';
 import { LatlngupdatePage } from '../pages/latlngupdate/latlngupdate';
+import { SearchPage } from '../pages/search/search';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any  = TabsPage ;
+  rootPage:any  = SearchPage ;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

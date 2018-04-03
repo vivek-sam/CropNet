@@ -16,6 +16,7 @@ import { CropselectPage } from '../pages/cropselect/cropselect';
 import { ConnectionsPage } from '../pages/connections/connections';
 import { ProfiledashboardPage } from '../pages/profiledashboard/profiledashboard';
 import { LatlngupdatePage } from '../pages/latlngupdate/latlngupdate';
+import { SearchPage } from '../pages/search/search';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -49,7 +50,8 @@ import { IonicStorageModule } from '@ionic/storage';
     CropselectPage,
     ConnectionsPage,
     ProfiledashboardPage,
-    LatlngupdatePage
+    LatlngupdatePage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ import { IonicStorageModule } from '@ionic/storage';
     CropselectPage,
     ConnectionsPage,
     ProfiledashboardPage,
-    LatlngupdatePage
+    LatlngupdatePage,
+    SearchPage
   ],
   providers: [
     StatusBar,
