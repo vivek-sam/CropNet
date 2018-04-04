@@ -18,6 +18,10 @@ import { RestProvider } from '../../providers/rest/rest';
 export class SearchPage {
   searchFor:any;
   searcBy:any;
+  searchResult:any;
+  resNickName:any;
+  resLanguages:any;
+  resPhoneNumber:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestProvider) {
   }
 
@@ -34,8 +38,16 @@ export class SearchPage {
     this.restService.searchForAndBy(options)
       .subscribe(
       resdata => {
-        this.sortedNearByDealer = resdata;
-        this.custmarker(this.sortedNearByDealer);
+      if (resdata.length > 0) {
+        this.searchResult = resdata[0];
+        this.resNickName = this.searchResult.NickName;
+        this.resLanguages = this.searchResult.Languages;
+        this.resPhoneNumber = this.searchResult.PhoneNumber;
+        console.log(JSON.stringify(resdata));
+      }else{
+        alert("No results found");
+      }
+
       },
       error => { this.errorMessage = <any>error; console.log("sortedNearByDealer : " + JSON.stringify(this.errorMessage)); });
   }

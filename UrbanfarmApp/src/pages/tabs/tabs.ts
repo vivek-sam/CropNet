@@ -7,6 +7,8 @@ import { LoginPage } from '../login/login';
 import { GeomapPage } from '../geomap/geomap';
 import { BasicinfoPage } from '../basicinfo/basicinfo';
 import { ProfiledashboardPage } from '../profiledashboard/profiledashboard';
+import { SearchPage } from '../search/search';
+
 import { Storage } from '@ionic/storage';
 
 
@@ -17,7 +19,7 @@ export class TabsPage {
 
   tab1Root = GeomapPage;
   tab2Root:any;
-  tab3Root = AboutPage;
+  tab3Root = SearchPage;
 
 
   constructor(private storage: Storage) {
