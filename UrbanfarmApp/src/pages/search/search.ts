@@ -22,6 +22,15 @@ export class SearchPage {
   resNickName:any;
   resLanguages:any;
   resPhoneNumber:any;
+
+
+  resdata: any;
+  errorMessage: any;
+  // private secureStorage:SecureStorage;
+  data: any;
+  error: any;
+
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestProvider) {
   }
 
