@@ -110,6 +110,14 @@ hostNamePort: any = "http://104.211.242.99:8080";
       .map(this.extractData)
       .catch(this.handleError);
   };
+  searchForAndBy(data): Observable<string[]> {
+    const Headers = {'headers' : {
+               'Content-Type': 'application/json'}
+           };
+    return this.http.post(this.hostNamePort+'/api/search', data ,Headers)
+      .map(this.extractData)
+      .catch(this.handleError);
+  };
 
   private extractData(res: Response) {
     let body = res;

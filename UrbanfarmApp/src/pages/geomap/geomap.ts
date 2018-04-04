@@ -144,27 +144,27 @@ export class GeomapPage {
 
   }
 
-  getRestaurants(latLng) {
-    var service = new google.maps.places.PlacesService(this.map);
-    var request = {
-      location: latLng,
-      radius: 800,
-      types: [this.searchFor],
-      center: latLng,
-      disableDefaultUI: true
-    };
-    return new Promise((resolve, reject) => {
-      service.nearbySearch(request, function(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          resolve(results);
-        } else {
-          reject(status);
-        }
-
-      });
-    });
-
-  }
+  // getRestaurants(latLng) {
+  //   var service = new google.maps.places.PlacesService(this.map);
+  //   var request = {
+  //     location: latLng,
+  //     radius: 800,
+  //     types: [this.searchFor],
+  //     center: latLng,
+  //     disableDefaultUI: true
+  //   };
+  //   return new Promise((resolve, reject) => {
+  //     service.nearbySearch(request, function(results, status) {
+  //       if (status === google.maps.places.PlacesServiceStatus.OK) {
+  //         resolve(results);
+  //       } else {
+  //         reject(status);
+  //       }
+  //
+  //     });
+  //   });
+  //
+  // }
   show() {
     // this.signupBtn = true;
   }

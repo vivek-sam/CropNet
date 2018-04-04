@@ -7,12 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>search</ion-title>
+
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-item>
+    <!-- <ion-icon name='information-circle' item-start></ion-icon> -->
+    <input type="text"  [(ngModel)]="searchFor" name="" value="" style="width:100%;border:0px;" placeholder="Search">
+    <ion-icon name='search' item-end color="secondary" (click) = "searchForAndBy()"></ion-icon>
+  </ion-item>
 </ion-content>
