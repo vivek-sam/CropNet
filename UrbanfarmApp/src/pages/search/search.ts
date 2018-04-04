@@ -17,7 +17,7 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class SearchPage {
   searchFor:any;
-  searcBy:any;
+  searchBy:any = 'name';
   searchResult:any;
   resNickName:any;
   resLanguages:any;
@@ -30,7 +30,7 @@ export class SearchPage {
   data: any;
   error: any;
 
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public restService: RestProvider) {
   }
 
@@ -42,7 +42,8 @@ export class SearchPage {
   searchForAndBy(){
     // this.searchFor;
     let options = {
-      name: this.searchFor
+      searchFor: this.searchFor,
+      searchBy : this.searchBy
     };
     this.restService.searchForAndBy(options)
       .subscribe(
