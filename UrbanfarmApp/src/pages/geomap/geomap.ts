@@ -46,7 +46,7 @@ export class GeomapPage {
   data: any;
   error: any;
   validUser: any;
-
+  toggleList :any = false ;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public platform: Platform,
@@ -76,6 +76,14 @@ export class GeomapPage {
       this.getUserPosition();
     });
 
+  }
+
+  toggle(){
+    if(this.toggleList == true){
+      this.toggleList =false;
+    }else{
+      this.toggleList =true;
+    }
   }
   // async fun(){
   //   return await this.storage.get('validUser').sync((data)=> {  this.validUser1 = data; alert(data);});
@@ -216,6 +224,7 @@ export class GeomapPage {
       resdata => {
         this.sortedNearByDealer = resdata;
         this.custmarker(this.sortedNearByDealer);
+        console.log(JSON.stringify(  this.sortedNearByDealer));
       },
       error => { this.errorMessage = <any>error; console.log("sortedNearByDealer : " + JSON.stringify(this.errorMessage)); });
 

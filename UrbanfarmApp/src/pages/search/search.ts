@@ -22,6 +22,7 @@ export class SearchPage {
   resNickName:any;
   resLanguages:any;
   resPhoneNumber:any;
+  cropsTypeList1:any ;
 
 
   resdata: any;
@@ -36,6 +37,14 @@ export class SearchPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
+    this.cropsTypeList1 = [
+                            {"name": "crop1", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
+                            {"name": "crop2", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
+                            {"name": "crop3", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
+                            {"name": "crop4", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
+                            {"name": "crop5", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
+                            {"name": "crop6", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"}
+                        ];
   }
 
 

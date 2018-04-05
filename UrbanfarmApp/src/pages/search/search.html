@@ -14,32 +14,46 @@
 
 
 <ion-content>
-  <div padding>
+  <ion-item>
+    <!-- <ion-icon name='information-circle' item-start></ion-icon> -->
+    <input type="text" [(ngModel)]="searchFor" name="" value="" style="width:100%;border:0px;" placeholder="Search For">
+    <ion-icon name='search' item-end color="secondary" (click)="searchForAndBy()"></ion-icon>
+  </ion-item>
+  <div padding >
+    <ion-title>Search By</ion-title>
     <ion-segment color="secondary" [(ngModel)]="searchBy">
-      <ion-segment-button  value="name">
-        Name
+      <ion-segment-button  value="name" >
+          <ion-icon name='person' item-start ></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="crop">
-        Crop
-      </ion-segment-button>
-      <ion-segment-button value="cropGroup">
-        Crop Group
+      <ion-icon name='nutrition' item-start></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </div>
-  <ion-item>
-    <!-- <ion-icon name='information-circle' item-start></ion-icon> -->
-    <input type="text" [(ngModel)]="searchFor" name="" value="" style="width:100%;border:0px;" placeholder="Search">
-    <ion-icon name='search' item-end color="secondary" (click)="searchForAndBy()"></ion-icon>
-  </ion-item>
-  <ion-list no-border>
+
+
+  <div  padding class="grid-two imageandtex">
+    <ion-title>Trending Crops</ion-title>
+       <div col-4 class="imageandtext image_grid" *ngFor="let crop of cropsTypeList1; let i = index">
+           <label for="ct1{{i}}" >
+               <img src="{{crop.link}}" />
+                {{crop.name}}
+           </label>
+           <input type="checkbox" [(ngModel)]="crop.selected"  name="ct1" id="ct1{{i}}" />
+           <div class="caption">
+
+           </div>
+       </div>
+   </div>
+
+  <!-- <ion-list no-border>
     <ion-item>
       <ion-icon name='person' item-start></ion-icon>{{resNickName}}
     </ion-item>
     <ion-item>
       <ion-icon name='contact' item-start></ion-icon>{{resPhoneNumber}}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 
 

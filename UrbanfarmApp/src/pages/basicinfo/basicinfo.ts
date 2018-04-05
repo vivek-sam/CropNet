@@ -29,12 +29,14 @@ export class BasicinfoPage {
   languages: any = "English";
   imageUrl: any = "somevalue";
   phoneNumber: any;
+  email:any;
   showBasicInfoPage: any = false;
   resdata: any;
   errorMessage: any;
   data: any;
   error: any;
   validUser: any;
+  contactOption: any = "phone";
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -55,10 +57,7 @@ export class BasicinfoPage {
   ) {
 
     this.loading = this.loadingCtrl.create();
-
     this.platform.ready().then(() => {
-
-
     });
   }
 
@@ -73,6 +72,7 @@ export class BasicinfoPage {
       nickName: this.nickName,
       imageUrl: "this.imageUrl",
       phoneNumber: this.phoneNumber,
+      email:this.email,
       connections: 'false'
     };
     console.log(JSON.stringify(options));
@@ -126,7 +126,13 @@ export class BasicinfoPage {
     actionSheet.present();
   }
 
-  public takePicture(sourceType) {
+  public takePicture(source) {
+      let sourceType ;
+    if(source == "camera"){
+       sourceType = this.camera.PictureSourceType.CAMERA
+    }else{
+         sourceType = this.camera.PictureSourceType.PHOTOLIBRARY;
+    }
     // Create options for the Camera Dialog
     var options = {
       quality: 100,
@@ -193,7 +199,7 @@ export class BasicinfoPage {
 
   public uploadImage() {
     // Destination URL
-    var url = "http://localhost:8100/ionic-lab/";
+    var url = "http://104.211.242.99/ionic-lab/";
 
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);

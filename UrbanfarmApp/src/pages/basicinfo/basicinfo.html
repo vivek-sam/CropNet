@@ -7,29 +7,69 @@
 
 <ion-content>
   <!-- <ion-label color="primary">Inline Label</ion-label> -->
-  <ion-item >
-   <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
-   <img src="http://www.alrisalahschool.com/wp-content/uploads/2017/06/profile-image-default-200x200.jpg" alt="" style="width: 100%" [hidden]="lastImage !== null">
- </ion-item>
-   <!-- <h3 [hidden]="lastImage !== null">Please Select Image!</h3> -->
- <ion-item >
-   <ion-buttons>
-     <button ion-button icon-left (click)="presentActionSheet()">
-       <ion-icon name="camera"></ion-icon>Select Image
-     </button>
-     <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
-       <ion-icon name="cloud-upload"></ion-icon>Upload
-     </button>
-   </ion-buttons>
-   </ion-item>
-    <ion-item >
-      <ion-label><b>Name</b></ion-label>
-     <ion-input id = "somthing" [(ngModel)] = "nickName" placeholder="Nick Name"  value= ""></ion-input>
-   </ion-item>
-   <ion-item >
-     <ion-label><b> Mobile </b></ion-label>
-    <ion-input id = "somthing" [(ngModel)] = "phoneNumber" placeholder=" Number"  value= ""></ion-input>
+  <ion-item>
+    <img src="{{pathForImage(lastImage)}}" style="width: auto;  margin: auto;  display: block;" [hidden]="lastImage === null" >
+    <img src="http://www.alrisalahschool.com/wp-content/uploads/2017/06/profile-image-default-200x200.jpg" alt="" style="width: auto;  margin: auto;  display: block;" [hidden]="lastImage !== null" >
   </ion-item>
-  <button   class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Submit </button>
+  <!-- <h3 [hidden]="lastImage !== null">Please Select Image!</h3> -->
+  <!-- <ion-item padding>
+    <ion-buttons>
+      <button ion-button icon-left (click)="takePicture('camera')" style="margin: auto;">
+      Camera
+    </button>
+      <button ion-button icon-left (click)="takePicture('library')" style="margin: auto;">
+     Library
+   </button>
+      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null" style="margin: auto;">
+       Upload
+     </button>
+    </ion-buttons>
+  </ion-item> -->
+  <div padding>
+    <ion-segment color="primary" [(ngModel)]="profileuploadOptions">
+      <ion-segment-button value="cam" (click)="takePicture('camera')">
+        Camera
+      </ion-segment-button>
+      <ion-segment-button   value="lib" (click)="takePicture('library')" >
+        Library
+      </ion-segment-button>
+      <ion-segment-button value = "upload"(click)="uploadImage()"   [disabled]="lastImage === null" >
+        Upload
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div padding>
+    <ion-segment color="secondary" [(ngModel)]="contactOption">
+      <ion-segment-button value="name">
+        Name
+      </ion-segment-button>
+      <ion-segment-button  [disabled]="lastImage === null" value="phone">
+        Phone
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="contactOption" padding>
+    <ion-list *ngSwitchCase="'name'">
+      <ion-item>
+        <!-- <ion-label><b> Mobile </b></ion-label> -->
+        <ion-input id="somthing" [(ngModel)]="nickName" placeholder="Name" value=""></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'phone'">
+      <ion-item>
+        <!-- <ion-label><b> Email </b></ion-label> -->
+        <ion-input id="inputEmail" [(ngModel)]="phoneNumber" placeholder="Phone Number" value=""></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+
+
+
+  <button class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Submit </button>
 
 </ion-content>

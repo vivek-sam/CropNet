@@ -1,8 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      <ion-searchbar [(ngModel)]="searchFor" [showCancelButton]="shouldShowCancel" (change)="getUserPosition()" (ionCancel)="onCancel($event)">
-      </ion-searchbar>
+    <ion-title >
+      <!-- <ion-searchbar [(ngModel)]="searchFor" [showCancelButton]="shouldShowCancel" (change)="getUserPosition()" (ionCancel)="onCancel($event)">
+      </ion-searchbar> -->
+      <input  type="text" [(ngModel)]="searchFor" name="" value="" style="border:0px;background-color:#f8f8f8;" placeholder="Search">
+      <ion-icon   name='search' item-end color="secondary" (click)="getUserPosition()"> </ion-icon>
+     <ion-icon padding name='list' item-end color="secondary" (click)="toggle()" ></ion-icon>
+      <ion-list *ngIf="toggleList">
+      <button ion-item *ngFor="let i of sortedNearByDealer" (click)="toggle()">
+        {{ i.NickName }}
+      </button>
+    </ion-list>
       <!-- <input type="text" name="" value=" " style = "z-index= 1"><button ion-button   color="danger" (click)="getUserPosition()" block  large padding style = "z-index:9999">Google Login</button> -->
     </ion-title>
   </ion-navbar>
