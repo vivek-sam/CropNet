@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 import { RestProvider } from '../../providers/rest/rest';
 
 /**
@@ -16,13 +15,13 @@ import { RestProvider } from '../../providers/rest/rest';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  searchFor:any;
-  searchBy:any = 'name';
-  searchResult:any;
-  resNickName:any;
-  resLanguages:any;
-  resPhoneNumber:any;
-  cropsTypeList1:any ;
+  searchFor: any;
+  searchBy: any = 'name';
+  searchResult: any;
+  resNickName: any;
+  resLanguages: any;
+  resPhoneNumber: any;
+  cropsTypeList1: any;
 
 
   resdata: any;
@@ -38,34 +37,34 @@ export class SearchPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
     this.cropsTypeList1 = [
-                            {"name": "crop1", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
-                            {"name": "crop2", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
-                            {"name": "crop3", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
-                            {"name": "crop4", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
-                            {"name": "crop5", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
-                            {"name": "crop6", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"}
-                        ];
+      { "name": "crop1", "link": "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg" },
+      { "name": "crop2", "link": "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg" },
+      { "name": "crop3", "link": "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg" },
+      { "name": "crop4", "link": "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg" },
+      { "name": "crop5", "link": "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg" },
+      { "name": "crop6", "link": "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg" }
+    ];
   }
 
 
-  searchForAndBy(){
+  searchForAndBy() {
     // this.searchFor;
     let options = {
       searchFor: this.searchFor,
-      searchBy : this.searchBy
+      searchBy: this.searchBy
     };
     this.restService.searchForAndBy(options)
       .subscribe(
       resdata => {
-      if (resdata.length > 0) {
-        this.searchResult = resdata[0];
-        this.resNickName = this.searchResult.NickName;
-        this.resLanguages = this.searchResult.Languages;
-        this.resPhoneNumber = this.searchResult.PhoneNumber;
-        console.log(JSON.stringify(resdata));
-      }else{
-        alert("No results found");
-      }
+        if (resdata.length > 0) {
+          this.searchResult = resdata[0];
+          this.resNickName = this.searchResult.NickName;
+          this.resLanguages = this.searchResult.Languages;
+          this.resPhoneNumber = this.searchResult.PhoneNumber;
+          console.log(JSON.stringify(resdata));
+        } else {
+          alert("No results found");
+        }
 
       },
       error => { this.errorMessage = <any>error; console.log("sortedNearByDealer : " + JSON.stringify(this.errorMessage)); });

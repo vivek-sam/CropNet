@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Create your Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,22 +15,29 @@
     <ion-option>French </ion-option>
   </ion-select>
 </ion-item>
+  <ion-item >
+<ion-label text-center   padding >{{ languages }} </ion-label>
+</ion-item >
 <ion-item >
+  <ion-item text-center>
+  <button  class="geolocation-btn" ion-button full (click)="tryGeolocation()"> Use my current location </button>
+  OR
+  <button  class="geolocation-btn" ion-button full (click)="toggleMapFunction()"> Select From Map </button>
 
-  <button  class="geolocation-btn" ion-button full (click)="tryGeolocation()"> Try Geolocation </button>
-  <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Select Your Location"></ion-searchbar>
+  </ion-item>
+  <ion-searchbar [hidden] = "toggleMap"[(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Select Your Location"></ion-searchbar>
   <ion-list [hidden]="autocompleteItems.length == 0">
     <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
       {{ item.description }}
     </ion-item>
   </ion-list>
   </ion-item>
-  <ion-item >
+  <ion-item  hidden>
     <ion-label>Lat Lang </ion-label>
     <ion-input id = "somthing" [(ngModel)] = "locationSelected" placeholder="location"  value= ""></ion-input>
  </ion-item>
 
-  <div class="row" #map1 id='map1'></div>
-  <button   class="geolocation-btn" ion-button full color="secondary" (click)="latLngUpdate()">Submit </button>
+  <div class="row" #map1 id='map1'  [hidden] = "toggleMap" ></div>
+  <button   class="geolocation-btn" ion-button full color="secondary" (click)="latLngUpdate()">Next </button>
 
 </ion-content>

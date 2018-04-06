@@ -106,13 +106,13 @@ export class BasicinfoPage {
       title: 'Select Image Source',
       buttons: [
         {
-          text: 'Load from Library',
+          text: 'Library',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
         {
-          text: 'Use Camera',
+          text: 'Camera',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.CAMERA);
           }
@@ -126,13 +126,13 @@ export class BasicinfoPage {
     actionSheet.present();
   }
 
-  public takePicture(source) {
-      let sourceType ;
-    if(source == "camera"){
-       sourceType = this.camera.PictureSourceType.CAMERA
-    }else{
-         sourceType = this.camera.PictureSourceType.PHOTOLIBRARY;
-    }
+  public takePicture(sourceType) {
+    //   let sourceType ;
+    // if(source == "camera"){
+    //    sourceType = this.camera.PictureSourceType.CAMERA
+    // }else{
+    //      sourceType = this.camera.PictureSourceType.PHOTOLIBRARY;
+    // }
     // Create options for the Camera Dialog
     var options = {
       quality: 100,

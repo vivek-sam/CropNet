@@ -1,16 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>Create Your Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
   <!-- <ion-label color="primary">Inline Label</ion-label> -->
-  <ion-item>
-    <img src="{{pathForImage(lastImage)}}" style="width: auto;  margin: auto;  display: block;" [hidden]="lastImage === null" >
-    <img src="http://www.alrisalahschool.com/wp-content/uploads/2017/06/profile-image-default-200x200.jpg" alt="" style="width: auto;  margin: auto;  display: block;" [hidden]="lastImage !== null" >
+  <ion-item >
+    <img src="{{pathForImage(lastImage)}}" style="width: auto;  margin: auto;  display: block;" [hidden]="lastImage === null" (click) = "presentActionSheet()" >
+    <img src="http://www.alrisalahschool.com/wp-content/uploads/2017/06/profile-image-default-200x200.jpg" alt=""  (click) = "presentActionSheet()"
+      style="width: auto;  margin: auto;  display: block;" [hidden]="lastImage !== null" >
   </ion-item>
+  <button  ion-button  full icon-left (click)="uploadImage()" [disabled]="lastImage === null" style="margin: auto;">
+   Upload
+ </button>
   <!-- <h3 [hidden]="lastImage !== null">Please Select Image!</h3> -->
   <!-- <ion-item padding>
     <ion-buttons>
@@ -25,7 +29,7 @@
      </button>
     </ion-buttons>
   </ion-item> -->
-  <div padding>
+  <!-- <div padding>
     <ion-segment color="primary" [(ngModel)]="profileuploadOptions">
       <ion-segment-button value="cam" (click)="takePicture('camera')">
         Camera
@@ -37,9 +41,31 @@
         Upload
       </ion-segment-button>
     </ion-segment>
-  </div>
+  </div> -->
+  <!-- <ion-item>
+    <ion-label><b> Mobile </b></ion-label>
+    <ion-input id="somthing" [(ngModel)]="nickName" placeholder="Name" value=""></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><b> Email </b></ion-label><br>
+    <ion-input id="inputEmail" [(ngModel)]="phoneNumber" placeholder="Phone Number" value=""></ion-input>
+  </ion-item> -->
+  <!-- <ion-list padding> -->
 
-  <div padding>
+    <ion-item padding >
+      <ion-label floating><b>Name</b></ion-label>
+      <ion-input type="text" [(ngModel)]="nickName" ></ion-input>
+    </ion-item>
+
+    <ion-item padding>
+      <ion-label floating><b>Phone Number</b></ion-label>
+      <ion-input type="text" [(ngModel)]="phoneNumber" ></ion-input>
+    </ion-item>
+
+  <!-- </ion-list> -->
+  <button class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button>
+
+  <!-- <div padding>
     <ion-segment color="secondary" [(ngModel)]="contactOption">
       <ion-segment-button value="name">
         Name
@@ -52,24 +78,24 @@
 
   <div [ngSwitch]="contactOption" padding>
     <ion-list *ngSwitchCase="'name'">
-      <ion-item>
+      <ion-item> -->
         <!-- <ion-label><b> Mobile </b></ion-label> -->
-        <ion-input id="somthing" [(ngModel)]="nickName" placeholder="Name" value=""></ion-input>
+        <!-- <ion-input id="somthing" [(ngModel)]="nickName" placeholder="Name" value=""></ion-input>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'phone'">
-      <ion-item>
+      <ion-item>-->
         <!-- <ion-label><b> Email </b></ion-label> -->
-        <ion-input id="inputEmail" [(ngModel)]="phoneNumber" placeholder="Phone Number" value=""></ion-input>
+        <!-- <ion-input id="inputEmail" [(ngModel)]="phoneNumber" placeholder="Phone Number" value=""></ion-input>
       </ion-item>
     </ion-list>
-  </div>
+  </div> -->
 
 
 
 
 
-  <button class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Submit </button>
+
 
 </ion-content>

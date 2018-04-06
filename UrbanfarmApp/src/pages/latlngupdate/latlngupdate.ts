@@ -56,6 +56,7 @@ export class LatlngupdatePage {
   imageUrl:any = "somevalue";
   selectlocationLatLang:any;
   phoneNumber:any;
+  toggleMap:any =true;
 
 
 currentPos : Geoposition;
@@ -100,28 +101,28 @@ error:any;
                 this.loading = this.loadingCtrl.create();
 
                 this.platform.ready().then(() => {
-                  this.secureStorage.create('my_store_name')
-                  .then((storage: SecureStorageObject) => {
-
-                     storage.get('key')
-                       .then(
-                           data => console.log(data),
-                         error => console.log(error)
-                     );
-
-                     storage.set('key', 'value')
-                       .then(
-                        data => console.log(data),
-                         error => console.log(error)
-                     );
-
-                     storage.remove('key')
-                     .then(
-                         data => console.log(data),
-                         error => console.log(error)
-                       );
-
-                        });
+                  // this.secureStorage.create('my_store_name')
+                  // .then((storage: SecureStorageObject) => {
+                  //
+                  //    storage.get('key')
+                  //      .then(
+                  //          data => console.log(data),
+                  //        error => console.log(error)
+                  //    );
+                  //
+                  //    storage.set('key', 'value')
+                  //      .then(
+                  //       data => console.log(data),
+                  //        error => console.log(error)
+                  //    );
+                  //
+                  //    storage.remove('key')
+                  //    .then(
+                  //        data => console.log(data),
+                  //        error => console.log(error)
+                  //      );
+                  //
+                  //       });
                 });
               }
 
@@ -159,6 +160,13 @@ error:any;
 
     // this.getUserPosition();
 
+  }
+  toggleMapFunction(){
+    if(this.toggleMap == true){
+      this.toggleMap =false;
+    }else{
+      this.toggleMap =true;
+    }
   }
   latLngUpdate(){
 
@@ -200,7 +208,8 @@ showBasicInfoPagefun(){
   }
 
   tryGeolocation(){
-    this.loading.present();
+    // this.loading.present().then();
+    this.toggleMap= false;
     this.clearMarkers();//remove previous markers
     this.geolocation.getCurrentPosition().then((resp) => {
       let pos = {

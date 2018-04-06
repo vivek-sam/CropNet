@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ConnectionsPage } from '../../pages/connections/connections';
 import { RestProvider } from '../../providers/rest/rest';
 
+// import { SearchPipe } from '../../pipes/search/search';
+// import { SortPipe } from '../../pipes/sort/sort';
+
 /**
  * Generated class for the CropselectPage page.
  *
@@ -28,6 +31,10 @@ errorMessage: any;
 // private secureStorage:SecureStorage;
 data:any;
 error:any;
+
+descending: boolean = false;
+order: number;
+column: string = 'name';
   constructor(public navCtrl: NavController, public navParams: NavParams,public restService: RestProvider) {
     console.log("crop select page : " + this.restService.userId);
   }
@@ -40,7 +47,7 @@ error:any;
                             {"name": "crop1", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
                             {"name": "crop2", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
                             {"name": "crop3", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
-                            {"name": "crop4", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
+                            {"name": "crop43", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
                             {"name": "crop5", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"},
                             {"name": "crop6", "link" : "https://wmswcd.org/wp-content/uploads/2015/04/P1020020-SIO-Cover-Crop-400x400.jpg"}
                         ];
@@ -78,7 +85,10 @@ error:any;
   }
 
 
-
+  sort(){
+    this.descending = !this.descending;
+    this.order = this.descending ? 1 : -1;
+  }
   pageredirection(){
     this.navCtrl.push(ConnectionsPage);
   }

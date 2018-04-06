@@ -7,26 +7,51 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cropselect</ion-title>
+    <ion-title>Create Your Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-label>Crop Type 1</ion-label>
-  <div class="grid-two imageandtext">
-       <div col-4 class="imageandtext image_grid" *ngFor="let crop of cropsTypeList1; let i = index">
-           <label for="ct1{{i}}" >
-               <img src="{{crop.link}}" />
+  <ion-label>Crops I’m Interested In</ion-label>
+  <ion-searchbar [(ngModel)]="searchCrop"></ion-searchbar>
+<!-- <button ion-button type="button" (click)="sort()">Sort</button>  -->
+
+  <ion-list>
+    <ion-item  *ngFor="let crop of cropsTypeList1 | search : searchCrop | sort: {property: column, order: order}; let i = index">
+      <ion-thumbnail item-start>
+        <img  src="{{crop.link}}">
+      </ion-thumbnail>
+      <ion-label>{{crop.name}} </ion-label>
+      <ion-checkbox  [(ngModel)]="crop.selected"(change)="updateCrops(crop)" name="ct1" id="ct1{{i}}" ></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+
+
+  <!-- <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list> -->
+  <!-- <div class="grid-two imageandtext">
+       <div  class="imageandtext image_grid" *ngFor="let crop of cropsTypeList1; let i = index">
+           <label text-center  for="ct1{{i}}" >
+               <img src="{{crop.link}}"  style="height:100px;width:100px;"/>
                 {{crop.name}}
            </label>
            <input type="checkbox" [(ngModel)]="crop.selected" (change)="updateCrops(crop)" name="ct1" id="ct1{{i}}" />
            <div class="caption">
 
            </div>
-       </div>
-   </div>
+       </div><br>
+   </div> -->
    <!-- <ion-label>Crop Type 2</ion-label>
    <div class="grid-two imageandtext">
         <div col-4 class="imageandtext image_grid" *ngFor="let image of images; let i = index">

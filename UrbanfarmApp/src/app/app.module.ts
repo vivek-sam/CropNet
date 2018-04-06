@@ -18,6 +18,9 @@ import { ProfiledashboardPage } from '../pages/profiledashboard/profiledashboard
 import { LatlngupdatePage } from '../pages/latlngupdate/latlngupdate';
 import { SearchPage } from '../pages/search/search';
 
+import { SearchPipe } from '../pipes/search/search';
+import { SortPipe } from '../pipes/sort/sort';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
@@ -51,7 +54,9 @@ import { IonicStorageModule } from '@ionic/storage';
     ConnectionsPage,
     ProfiledashboardPage,
     LatlngupdatePage,
-    SearchPage
+    SearchPage,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
