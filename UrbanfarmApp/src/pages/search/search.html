@@ -19,32 +19,41 @@
     <input type="text" [(ngModel)]="searchFor" name="" value="" style="width:100%;border:0px;" placeholder="Search For">
     <ion-icon name='search' item-end color="secondary" (click)="searchForAndBy()"></ion-icon>
   </ion-item>
-  <div padding >
+  <ion-list style = "max-height: 300px; overflow-y: scroll;">
+    <ion-item *ngFor="let p of searchResult">
+      <ion-avatar item-start>
+        <img src="assets/imgs/profile-green.png">
+      </ion-avatar>
+      <h2>{{p.NickName}}</h2>
+      <p>{{p.Languages}}</p>
+    </ion-item>
+  </ion-list>
+  <div padding>
     <ion-title>Search By</ion-title>
     <ion-segment color="secondary" [(ngModel)]="searchBy">
-      <ion-segment-button  value="name" >
-          <ion-icon name='person' item-start ></ion-icon>
+      <ion-segment-button value="name">
+        <ion-icon name='person' item-start></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="crop">
-      <ion-icon name='nutrition' item-start></ion-icon>
+        <ion-icon name='nutrition' item-start></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </div>
 
 
-  <div  padding class="grid-two imageandtex">
+  <div padding class="grid-two imageandtex">
     <ion-title>Trending Crops</ion-title>
-       <div col-4 class="imageandtext image_grid" *ngFor="let crop of cropsTypeList1; let i = index">
-           <label for="ct1{{i}}" >
+    <div col-4 class="imageandtext image_grid" *ngFor="let crop of cropsTypeList1; let i = index">
+      <label for="ct1{{i}}">
                <img src="{{crop.link}}" />
                 {{crop.name}}
            </label>
-           <input type="checkbox" [(ngModel)]="crop.selected"  name="ct1" id="ct1{{i}}" />
-           <div class="caption">
+      <input type="checkbox" [(ngModel)]="crop.selected" name="ct1" id="ct1{{i}}" />
+      <div class="caption">
 
-           </div>
-       </div>
-   </div>
+      </div>
+    </div>
+  </div>
 
   <!-- <ion-list no-border>
     <ion-item>
@@ -57,7 +66,7 @@
 
 
 
-<!-- <div [ngSwitch]="pet">
+  <!-- <div [ngSwitch]="pet">
   <ion-list *ngSwitchCase="'puppies'">
     <ion-item>
       <ion-thumbnail item-start>

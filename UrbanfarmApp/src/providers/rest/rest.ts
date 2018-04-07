@@ -23,8 +23,8 @@ export class RestProvider {
 
   map: any;
 userId:any = '1234';
-hostNamePort: any = "http://localhost:8080";
-// hostNamePort: any = "http://104.211.242.99:8080";
+// hostNamePort: any = "http://localhost:8080";
+hostNamePort: any = "http://104.211.242.99:8080";
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');

@@ -14,11 +14,11 @@
 
 
 <ion-content padding>
-  <ion-label>Crops I’m Interested In</ion-label>
+  <ion-label> <b> Crops I’m Interested In</b></ion-label>
   <ion-searchbar [(ngModel)]="searchCrop"></ion-searchbar>
 <!-- <button ion-button type="button" (click)="sort()">Sort</button>  -->
 
-  <ion-list>
+  <ion-list style = "max-height: 350px; overflow-y: scroll;">
     <ion-item  *ngFor="let crop of cropsTypeList1 | search : searchCrop | sort: {property: column, order: order}; let i = index">
       <ion-thumbnail item-start>
         <img  src="{{crop.link}}">
