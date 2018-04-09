@@ -5,21 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
   <ion-item>
     <!-- <ion-icon name='information-circle' item-start></ion-icon> -->
     <input type="text" [(ngModel)]="searchFor" name="" value="" style="width:100%;border:0px;" placeholder="Search For">
     <ion-icon name='search' item-end color="secondary" (click)="searchForAndBy()"></ion-icon>
   </ion-item>
-  <ion-list style = "max-height: 300px; overflow-y: scroll;">
+  <ion-list style="max-height: 300px; overflow-y: scroll;">
     <ion-item *ngFor="let p of searchResult">
       <ion-avatar item-start>
         <img src="assets/imgs/profile-green.png">
@@ -37,10 +32,11 @@
       <ion-segment-button value="crop">
         <ion-icon name='nutrition' item-start></ion-icon>
       </ion-segment-button>
+      <ion-segment-button value="personAndCrop">
+        <ion-icon name='' item-start>Both</ion-icon>
+      </ion-segment-button>
     </ion-segment>
   </div>
-
-
   <div padding class="grid-two imageandtex">
     <ion-title>Trending Crops</ion-title>
     <div col-4 class="imageandtext image_grid" *ngFor="let crop of cropsTypeList1; let i = index">

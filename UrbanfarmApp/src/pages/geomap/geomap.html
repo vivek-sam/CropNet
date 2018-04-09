@@ -6,11 +6,23 @@
       <input  type="text" [(ngModel)]="searchFor" name="" value="" style="border:0px;background-color:#f8f8f8;" placeholder="Search">
       <ion-icon   name='search' item-end color="secondary" (click)="getUserPosition()"> </ion-icon>
      <ion-icon padding name='list' item-end color="secondary" (click)="toggle()" ></ion-icon>
-      <ion-list *ngIf="toggleList">
+      <!-- <ion-list *ngIf="toggleList">
       <button ion-item *ngFor="let i of sortedNearByDealer" (click)="toggle()">
         {{ i.NickName }}
       </button>
+    </ion-list> -->
+
+    <ion-list style="max-height: 300px; overflow-y: scroll;"  *ngIf="toggleList">
+      <ion-item *ngFor="let i of sortedNearByDealer" (click)="toggle()">
+        <ion-avatar item-start>
+          <img src="assets/imgs/profile-green.png">
+        </ion-avatar>
+        <h2>{{i.NickName}}</h2>
+        <p>{{i.Languages}}</p>
+      </ion-item>
     </ion-list>
+
+
       <!-- <input type="text" name="" value=" " style = "z-index= 1"><button ion-button   color="danger" (click)="getUserPosition()" block  large padding style = "z-index:9999">Google Login</button> -->
     </ion-title>
   </ion-navbar>

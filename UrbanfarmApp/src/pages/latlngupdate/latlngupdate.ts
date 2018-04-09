@@ -208,7 +208,11 @@ showBasicInfoPagefun(){
   }
 
   tryGeolocation(){
-    // this.loading.present().then();
+    this.loading = this.loadingCtrl.create({
+           content: 'Location Update....',
+           dismissOnPageChange: true
+       });
+    this.loading.present();
     this.toggleMap= false;
     this.clearMarkers();//remove previous markers
     this.geolocation.getCurrentPosition().then((resp) => {
@@ -226,7 +230,7 @@ showBasicInfoPagefun(){
       });
       this.markers.push(marker);
       this.map.setCenter(pos);
-      this.loadingimg.dismiss();
+      this.loading.dismiss();
 
     }).catch((error) => {
       console.log('Error getting location', error);

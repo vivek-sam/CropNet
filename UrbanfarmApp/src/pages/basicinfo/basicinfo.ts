@@ -206,7 +206,7 @@ export class BasicinfoPage {
 
     // File name only
     var filename = this.lastImage;
-    this.imageUrl = url + targetPath + filename;
+    // this.imageUrl = url + targetPath + filename;
     var options = {
       fileKey: "file",
       fileName: filename,
