@@ -199,7 +199,7 @@ export class BasicinfoPage {
 
   public uploadImage() {
     // Destination URL
-    var url = "http://104.211.242.99/ionic-lab/";
+    var url = "http://104.211.242.99:8080/api/img";
 
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
@@ -209,10 +209,10 @@ export class BasicinfoPage {
     // this.imageUrl = url + targetPath + filename;
     var options = {
       fileKey: "file",
-      fileName: filename,
+      file: filename,
       chunkedMode: false,
       mimeType: "multipart/form-data",
-      params: { 'fileName': filename }
+      params: { 'file': filename }
     };
 
     const fileTransfer: TransferObject = this.transfer.create();
@@ -229,6 +229,7 @@ export class BasicinfoPage {
     }, err => {
       this.loadingimg.dismissAll()
       this.presentToast('Error while uploading file.');
+      alert(JSON.stringify(err));
     });
   }
 
