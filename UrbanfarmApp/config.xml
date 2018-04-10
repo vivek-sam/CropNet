@@ -97,5 +97,5 @@
     <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
     <allow-navigation href="http://localhost:8100" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.0" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>
