@@ -38,6 +38,9 @@
  </ion-item>
 
   <div class="row" #map1 id='map1'  [hidden] = "toggleMap" ></div>
-  <button   class="geolocation-btn" ion-button full color="secondary" (click)="latLngUpdate()">Next </button>
+  <!-- <button   class="geolocation-btn" ion-button full color="secondary" (click)="latLngUpdate()">Next </button> -->
 
 </ion-content>
+<ion-footer  class="bar-assertive">
+  <button   round ion-button block class="geolocation-btn" ion-button full color="secondary" (click)="latLngUpdate()">Next </button>
+ </ion-footer>

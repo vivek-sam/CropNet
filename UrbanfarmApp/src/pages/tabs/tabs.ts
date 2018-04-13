@@ -9,6 +9,9 @@ import { BasicinfoPage } from '../basicinfo/basicinfo';
 import { ProfiledashboardPage } from '../profiledashboard/profiledashboard';
 import { SearchPage } from '../search/search';
 
+
+import { RestProvider } from '../../providers/rest/rest';
+
 import { Storage } from '@ionic/storage';
 
 
@@ -22,7 +25,9 @@ export class TabsPage {
   tab3Root = SearchPage;
 
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage,  public restService: RestProvider) {
+    // this.storage.set('validUser', false);
+
     this.storage.get('validUser').then((data) => {
       if(data == true){
       this.tab2Root = ProfiledashboardPage  ;
@@ -30,5 +35,8 @@ export class TabsPage {
       this.tab2Root = BasicinfoPage  ;
     }
   });
+  this.storage.get('userId').then((data) => {
+    this.restService.userId= data;
+});
   }
 }

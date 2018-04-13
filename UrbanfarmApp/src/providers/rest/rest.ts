@@ -22,9 +22,10 @@ import 'rxjs/Rx';
 export class RestProvider {
 
   map: any;
-userId:any = '1234';
+userId:any ;
 // hostNamePort: any = "http://localhost:8080";
 hostNamePort: any = "http://104.211.242.99:8080";
+cropHostNamePort: any = "http://104.211.242.99:8081";
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
@@ -115,6 +116,14 @@ hostNamePort: any = "http://104.211.242.99:8080";
                'Content-Type': 'application/json'}
            };
     return this.http.post(this.hostNamePort+'/api/search', data ,Headers)
+      .map(this.extractData)
+      .catch(this.handleError);
+  };
+  cropImages(): Observable<string[]> {
+    const Headers = {'headers' : {
+               'Content-Type': 'application/json'}
+           };
+    return this.http.get(this.cropHostNamePort+'/api/img' ,Headers)
       .map(this.extractData)
       .catch(this.handleError);
   };

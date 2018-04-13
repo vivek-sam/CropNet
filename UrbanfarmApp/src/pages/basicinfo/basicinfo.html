@@ -59,11 +59,11 @@
 
     <ion-item padding>
       <ion-label floating><b>Phone Number</b></ion-label>
-      <ion-input type="text" [(ngModel)]="phoneNumber" ></ion-input>
+      <ion-input type="number" [(ngModel)]="phoneNumber" ></ion-input>
     </ion-item>
 
   <!-- </ion-list> -->
-  <button class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button>
+  <!-- <button class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button> -->
 
   <!-- <div padding>
     <ion-segment color="secondary" [(ngModel)]="contactOption">
@@ -91,11 +91,7 @@
       </ion-item>
     </ion-list>
   </div> -->
-
-
-
-
-
-
-
 </ion-content>
+<ion-footer  class="bar-assertive" style="background-color:transprent;">
+  <button  round ion-button block class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button>
+ </ion-footer>

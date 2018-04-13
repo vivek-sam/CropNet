@@ -24,6 +24,7 @@ import { SortPipe } from '../pipes/sort/sort';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
+// import { CustommarkerProvider } from '../providers/custommarker/custommarker';
 //import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';

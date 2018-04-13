@@ -87,6 +87,7 @@ export class BasicinfoPage {
           this.restService.userId = this.resdata._id;
           this.storage.set('validUser', true);
           this.storage.set('userId', this.resdata._id);
+          this.restService.userId =  this.resdata._id;
           this.pageredirection();
         },
         error => { this.errorMessage = <any>error; console.log("res basicInfo : " + JSON.stringify(this.errorMessage)); });
