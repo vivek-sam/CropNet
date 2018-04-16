@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 // import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { Geolocation, GeolocationOptions, Geoposition, PositionError } from '@ionic-native/geolocation';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
 
 import { BasicinfoPage } from '../../pages/basicinfo/basicinfo';
 import { ProfiledashboardPage } from '../../pages/profiledashboard/profiledashboard';
@@ -58,7 +59,8 @@ export class GeomapPage {
     private geolocation: Geolocation,
     private googleMaps: GoogleMaps,
     public restService: RestProvider,
-    private storage: Storage) {
+    private storage: Storage,
+    public locationAccuracy: LocationAccuracy) {
 
     platform.ready().then(() => {
 

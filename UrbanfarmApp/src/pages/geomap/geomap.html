@@ -4,7 +4,7 @@
       <ion-item style="border:0px;background-color:#f8f8f8;">
         <ion-input type="text" [(ngModel)]="searchFor" name="" value="" style="border:0px;background-color:#f8f8f8;" placeholder="Search"></ion-input>
         <ion-icon padding name='search' item-end color="secondary" (click)="getUserPosition()"> </ion-icon>
-        <ion-icon    name='list' item-end color="secondary" (click)="toggle()"></ion-icon>
+        <ion-icon name='list' item-end color="secondary" (click)="toggle()"></ion-icon>
       </ion-item>
       <ion-list style="max-height: 300px; overflow-y: scroll;" *ngIf="toggleList">
         <ion-item *ngFor="let i of sortedNearByDealer" (click)="toggle()">

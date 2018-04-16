@@ -37,6 +37,7 @@ import { Camera } from '@ionic-native/camera';
 
 import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 import { IonicStorageModule } from '@ionic/storage';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Camera,
     FilePath,
     SecureStorage,
-    IonicStorageModule
+    IonicStorageModule,
+    LocationAccuracy
   ]
 })
 export class AppModule { }

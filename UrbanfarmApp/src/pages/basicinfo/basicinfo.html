@@ -7,12 +7,11 @@
 
 <ion-content>
   <!-- <ion-label color="primary">Inline Label</ion-label> -->
-  <ion-item >
-    <img src="{{pathForImage(lastImage)}}" style="width: auto;  margin: auto;  display: block; height:150px;" [hidden]="lastImage === null" (click) = "presentActionSheet()" >
-    <img src="assets/imgs/profile-green.png" alt=""  (click) = "presentActionSheet()"
-      style="width: auto;  margin: auto;  display: block; height:150px;" [hidden]="lastImage !== null" >
+  <ion-item>
+    <img src="{{pathForImage(lastImage)}}" style="width: auto;  margin: auto;  display: block; height:150px;" [hidden]="lastImage === null" (click)="presentActionSheet()">
+    <img src="assets/imgs/profile-green.png" alt="" (click)="presentActionSheet()" style="width: auto;  margin: auto;  display: block; height:150px;" [hidden]="lastImage !== null">
   </ion-item>
-  <button  ion-button  full icon-left (click)="uploadImage()" [disabled]="lastImage === null" style="margin: auto;">
+  <button ion-button full icon-left (click)="uploadImage()" [disabled]="lastImage === null" style="margin: auto;">
    Upload
  </button>
   <!-- <h3 [hidden]="lastImage !== null">Please Select Image!</h3> -->
@@ -52,15 +51,15 @@
   </ion-item> -->
   <!-- <ion-list padding> -->
 
-    <ion-item padding >
-      <ion-label floating><b>Name</b></ion-label>
-      <ion-input type="text" [(ngModel)]="nickName" ></ion-input>
-    </ion-item>
+  <ion-item padding>
+    <ion-label floating><b>Name</b></ion-label>
+    <ion-input type="text" [(ngModel)]="nickName"></ion-input>
+  </ion-item>
 
-    <ion-item padding>
-      <ion-label floating><b>Phone Number</b></ion-label>
-      <ion-input type="number" [(ngModel)]="phoneNumber" ></ion-input>
-    </ion-item>
+  <ion-item padding>
+    <ion-label floating><b>Phone Number</b></ion-label>
+    <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
+  </ion-item>
 
   <!-- </ion-list> -->
   <!-- <button class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button> -->
@@ -79,19 +78,19 @@
   <div [ngSwitch]="contactOption" padding>
     <ion-list *ngSwitchCase="'name'">
       <ion-item> -->
-        <!-- <ion-label><b> Mobile </b></ion-label> -->
-        <!-- <ion-input id="somthing" [(ngModel)]="nickName" placeholder="Name" value=""></ion-input>
+  <!-- <ion-label><b> Mobile </b></ion-label> -->
+  <!-- <ion-input id="somthing" [(ngModel)]="nickName" placeholder="Name" value=""></ion-input>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'phone'">
       <ion-item>-->
-        <!-- <ion-label><b> Email </b></ion-label> -->
-        <!-- <ion-input id="inputEmail" [(ngModel)]="phoneNumber" placeholder="Phone Number" value=""></ion-input>
+  <!-- <ion-label><b> Email </b></ion-label> -->
+  <!-- <ion-input id="inputEmail" [(ngModel)]="phoneNumber" placeholder="Phone Number" value=""></ion-input>
       </ion-item>
     </ion-list>
   </div> -->
 </ion-content>
-<ion-footer  class="bar-assertive" style="background-color:transprent;">
-  <button  round ion-button block class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button>
- </ion-footer>
+<ion-footer class="bar-assertive" style="background-color:transprent;">
+  <button round ion-button block class="geolocation-btn" ion-button full color="secondary" (click)="basicinfo()">Next </button>
+</ion-footer>

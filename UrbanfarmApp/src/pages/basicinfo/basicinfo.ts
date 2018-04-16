@@ -23,13 +23,13 @@ export class BasicinfoPage {
 
   lastImage: string = null;
   loadingimg: Loading;
-  loading:any;
+  loading: any;
 
   nickName: any;
   languages: any = "English";
   imageUrl: any = "somevalue";
   phoneNumber: any;
-  email:any;
+  email: any;
   showBasicInfoPage: any = false;
   resdata: any;
   errorMessage: any;
@@ -42,7 +42,7 @@ export class BasicinfoPage {
     public navParams: NavParams,
     public zone: NgZone,
     public loadingCtrl: LoadingController,
-    public restService: RestProvider ,
+    public restService: RestProvider,
 
     private camera: Camera,
     private transfer: Transfer,
@@ -72,7 +72,7 @@ export class BasicinfoPage {
       nickName: this.nickName,
       imageUrl: "this.imageUrl",
       phoneNumber: this.phoneNumber,
-      email:this.email,
+      email: this.email,
       connections: 'false'
     };
     console.log(JSON.stringify(options));
@@ -87,7 +87,7 @@ export class BasicinfoPage {
           this.restService.userId = this.resdata._id;
           this.storage.set('validUser', true);
           this.storage.set('userId', this.resdata._id);
-          this.restService.userId =  this.resdata._id;
+          this.restService.userId = this.resdata._id;
           this.pageredirection();
         },
         error => { this.errorMessage = <any>error; console.log("res basicInfo : " + JSON.stringify(this.errorMessage)); });
