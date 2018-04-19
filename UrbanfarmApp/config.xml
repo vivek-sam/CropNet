@@ -91,12 +91,12 @@
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAH93lNw4KP566dfNcABz6uC-Gdx0p-iZ8" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
-    <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-filepath" spec="^1.2.0" />
     <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
     <allow-navigation href="http://localhost:8100" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.0" />
-    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.2" />
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <engine name="android" spec="7.0.0" />
 </widget>

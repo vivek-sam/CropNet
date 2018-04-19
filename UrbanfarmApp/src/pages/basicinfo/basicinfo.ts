@@ -24,6 +24,7 @@ export class BasicinfoPage {
   lastImage: string = null;
   loadingimg: Loading;
   loading: any;
+  uploadedImageFileId :any ;
 
   nickName: any;
   languages: any = "English";
@@ -70,7 +71,7 @@ export class BasicinfoPage {
   basicinfo() {
     let options = {
       nickName: this.nickName,
-      imageUrl: "this.imageUrl",
+      imageFileId: this.uploadedImageFileId,
       phoneNumber: this.phoneNumber,
       email: this.email,
       connections: 'false'
@@ -227,6 +228,12 @@ export class BasicinfoPage {
     fileTransfer.upload(targetPath, url, options).then(data => {
       this.loadingimg.dismissAll()
       this.presentToast('Image succesful uploaded.');
+      // this.presentToast(JSON.stringify(data.response));
+      let x = data.response;
+      let y = JSON.parse(x);
+      this.uploadedImageFileId = y.file._id;
+      // alert(y.file._id);
+
     }, err => {
       this.loadingimg.dismissAll()
       this.presentToast('Error while uploading file.');

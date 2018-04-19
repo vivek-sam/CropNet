@@ -119,6 +119,24 @@ cropHostNamePort: any = "http://104.211.242.99:8081";
       .map(this.extractData)
       .catch(this.handleError);
   };
+   profileImage(id): Observable<string[]> {
+    const Headers = {'headers' : {
+               'Content-Type': 'application/json',
+              'imageid': id  }
+           };
+    return this.http.get(this.hostNamePort+'/api/imgID' ,Headers)
+      .map(this.extractData)
+      .catch(this.handleError);
+  };
+  basicinfoById(id): Observable<string[]> {
+   const Headers = {'headers' : {
+              'Content-Type': 'application/json',
+             'userid': id  }
+          };
+   return this.http.get(this.hostNamePort+'/api/users/id' ,Headers)
+     .map(this.extractData)
+     .catch(this.handleError);
+ };
   cropImages(): Observable<string[]> {
     const Headers = {'headers' : {
                'Content-Type': 'application/json'}
